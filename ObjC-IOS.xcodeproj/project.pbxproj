@@ -152,7 +152,7 @@
 				TargetAttributes = {
 					1F1266F11FC4080A0088DF50 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					1F1267091FC4080A0088DF50 = {
 						CreatedOnToolsVersion = 9.0;
@@ -357,11 +357,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tata Consultancy Services Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tata Consultancy Services Limited";
+				CODE_SIGN_STYLE = Manual;
 				INFOPLIST_FILE = "ObjC-IOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "TestCI.ObjC-IOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tcs.mobility.objc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f843b8c0-b6a9-4d9f-8191-cf6abb46a22d";
+				PROVISIONING_PROFILE_SPECIFIER = "TCS Distribution Profile 16To17";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -370,11 +374,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tata Consultancy Services Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tata Consultancy Services Limited";
+				CODE_SIGN_STYLE = Manual;
 				INFOPLIST_FILE = "ObjC-IOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "TestCI.ObjC-IOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tcs.mobility.objc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f843b8c0-b6a9-4d9f-8191-cf6abb46a22d";
+				PROVISIONING_PROFILE_SPECIFIER = "TCS Distribution Profile 16To17";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
