@@ -1,0 +1,10 @@
+osx_image: xcode9
+xcode_sdk: iphonesimulator11.0
+language: objective-c
+xcode_project: ObjC-IOS.xcodeproj
+xcode_scheme: ObjC-IOS
+#script:
+#    - xcodebuild clean build -sdk iphonesimulator11.0 -project NewCandySearch.xcodeproj -scheme NewCandySearch CODE_SIGNING_REQUIRED=NO
+    
+script:
+    - xcodebuild clean build -sdk iphonesimulator11.0 -workspace ObjC-IOS.xcworkspace -scheme ObjC-IOS CODE_SIGNING_REQUIRED=NO
