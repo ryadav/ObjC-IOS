@@ -7,4 +7,4 @@ xcode_scheme: ObjC-IOS
 #    - xcodebuild clean build -sdk iphonesimulator11.0 -project NewCandySearch.xcodeproj -scheme NewCandySearch CODE_SIGNING_REQUIRED=NO
     
 script:
-    - xcodebuild clean build -sdk iphonesimulator11.0 -workspace ObjC-IOS.xcworkspace -scheme ObjC-IOS CODE_SIGNING_REQUIRED=NO
+    - xcodebuild clean build -sdk iphonesimulator11.0 -project ObjC-IOS.xcodeproj -scheme ObjC-IOS CODE_SIGNING_REQUIRED=NO
