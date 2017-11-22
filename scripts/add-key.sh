@@ -39,5 +39,6 @@ security set-keychain-settings -t 3600 -u $KEY_CHAIN
 security import ./scripts/certs/apple.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
 security import ./scripts/certs/TCSL.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
 security import ./scripts/certs/TCSL.p12 -k ~/Library/Keychains/ios-build.keychain -P tcs@123 -T /usr/bin/codesign
+cp "./scripts/profile/$PROFILE_NAME.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
 
 security set-key-partition-list -S apple-tool:,apple: -s -k travis ios-build.keychain
