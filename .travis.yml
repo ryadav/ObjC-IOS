@@ -1,5 +1,4 @@
 osx_image: xcode9
-#xcode_sdk: iphonesimulator11.0
 language: objective-c
 xcode_project: ObjC-IOS.xcodeproj
 xcode_scheme: ObjC-IOS
@@ -8,14 +7,17 @@ before_script:
 - ./scripts/update-bundle.sh
 - ./scripts/sign-and-upload.sh
 script:
-- xcodebuild clean build -project ObjC-IOS.xcodeproj -scheme ObjC-IOS -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO
+- xcodebuild clean build -project ObjC-IOS.xcodeproj -scheme ObjC-IOS -sdk iphoneos
+  -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO
 after_script:
 - ./scripts/remove-key.sh
-
+- ./scripts/testflight.sh
 env:
   global:
   - APP_NAME="ObjC-IOS"
-  - 'DEVELOPER_NAME="Pfizer International Inc"'
+  - DEVELOPER_NAME="Pfizer International Inc"
   - INFO_PLIST="ObjC-IOS/Info.plist"
   - PROFILE_NAME="TCS_Distribution_Profile_16To17"
   - secure: oEfLhiRIN8KvL6/3sSokDakALzYlDErHpsqzmumvMfeItGSNr7+cIzAuvUd1jwjvxfOpcb/jxJt0V6El4jV4QtN1v8pC129mKMtNcviaLBfZN+eoOLl11RQ5OaJew3NoyvKlxViZUdfk2M403STo6FjAPPvoszgXwiimswYorMW9UpilpEykl8tpTMTWWlZ+vggelGtFDs0SJLg/tgYZ3fDmcXN9oOBmvvqbRw4C7MfBfgtG4NrL9HyZtkYt0lF7e2/pRdYr8bziZ3/wS4DJvmWR57zKdhJfI5M8sYK9jG5mmz44fxFZUqdHfARPYvx3s4RX5pQW66kNcfZ9YACqNk389mw+2GCCM+vedZx87aMGmdMaz2S6fZcd4nBwxNFKjQ5Tm4bnvMz5MQjX7Ymnw0frspj1KgcDK78KFYO80CCxxT7O4YHpwjH5q0FJwCHdV4Uy/cWTID0rlXlsaAUZoMktsKhdtYIwVg4ey8B+jcOdaB9rpwjs9+xhLFu8KdnXPa1JQJRwh01AT9AFOBUiAp3vckrh/Wr0xB+NaFpPLtFV8L0F2MLDaZZaTHqSgT/gsZideYPmUFCW3LM4gEjWM1Y8DH7P7OgBb447TS8l0Sz1xaFgWWBI/Choterq+FyJpQ6biw/YFCl0KUJfS2fPacH2YPv+0Yn1IcrFq0pd96U=
+  - secure: NhN2e2nLLbwU8XSBKf3Bs6I7LQTkzWwsqCcoiRd6LdTrL3861keZSHePnFNa9U+9GNVq+bTrUSkZ9Xw+nIRQNfP++uVn4y6E4EgmJWEMY7swz8ZwEtdlZkehK/rPofQrBH4yZr3Vgp9+Mi8SHFe5UHHWCZZS3VISTzIVqWgp4HLb/0cPE65cbmGTjKuJYdEcDR5UUBH5lOENd3GKSmTsiYdpXwc/TW0CrM7NkhvPLu5GoWEcMxOi80R21cGeZ2XpglLjj1DVwxfHqbdVK7QOY+HQRIDvm5+V/3TfNpHcpnz0RA22Hev/5OgwulC7/igiWSkQEr+5YAalyW55xtWk5vgjOnZrkp2o7rakaUohpq4V+drrzCBXgfjqP9HDI2QaX44OYvlAH6Yj/XH8gb4ilGH739WJjcTL58qGGB7xRT19etYREriB17GpV5xah4bGI9nsXz44pAx9Mbba90P7ktTgQFBthD4CrR7zK6eiOTHFDUiIMykiAnG7EenWHRbFmXswTp2I47cmXeXCk8MJ1zhILhg4b6C3CEvQ41F5U5g3JXpIge4MHHw4FxS8nGD2Zs7uthhP8Q4rMKqMu4DUoTabZRvV1F1Ta1gEMAM5cvtmHdNixChLGmkUJ2zJZcwdoZjduFWmOtSsyh7A93YT1VNRhp0ZHImnFM6OjuWgWFM=
+  - secure: luFjkpwQGZ9QCtktcW7wm2cviIxr/vsakzL8Ayybk5qOLg6yA7Z/HxEQV/a36UY9GEAxFazB45ksAVrLhoXHTosAHMVim3LgRtA2u7u0EAS0kYS8l7BSxw9zRLH5cJENyEh5UprGczfBY4f9iUP+5jgjMUOEfV0QPiWdbPQbysMlrvMfLiEVqH3W/+GSOpA7qGcNglcFiiGQURv5BjKlOnyQuo2PZpFsTP3t2XyDeyD4sFhv2b99gx26LbnKleo3C1G/jHa7Efmfwr9VPKSoSLeh1o22THc1P+gQijvWk3747zLtwmtVCSzkCyV1jWVcx/UDRGKcgyJcf6CTypU21KDP+fbJWYQcwvzOw3Cade/2tKCTqkts1z7ft4iDyGCDSvx2UgvQkTjxUuNGN3oX3Ird5uBVK+T4igjT1YB3Mz0StGwuL5vn+1VGhrplduQ+k0NzTN86/DmrQ0HTDWaLrf5sAjJiWGeStMrARfTTouXKncGOUQtRjQFeL6kStRC12K51SJDkSA6dUJW6lZX9ogRxPfpsyD9rmFphsH13IWsBs560tQjz/FFp5bNYjlpKV3zzs3YU+xpEOyDSWxVZyPLnRwVDW7ToGckyk/7bPiFfR7rSS/vx2lJtqvq9YbOh98dk8wRciJu9I7I3XUZ4iyJAwxFe1FHM3f6KdI/G6xI=
