@@ -8,7 +8,7 @@ RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
 echo "********************"
 echo "*     Signing      *"
 echo "********************"
-xcodebuild -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APPNAME.app" -o "$OUTPUTDIR/$APPNAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
+#xcodebuild -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APPNAME.app" -o "$OUTPUTDIR/$APPNAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
 
 RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
 
@@ -23,3 +23,5 @@ curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \
   -F ipa="@$OUTPUTDIR/$APP_NAME.ipa" \
   -F dsym="@$OUTPUTDIR/$APP_NAME.app.dSYM.zip" \
   -H "X-HockeyAppToken: $HOCKEY_APP_TOKEN"
+  
+  echo "** build completed **"
