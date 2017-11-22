@@ -1,4 +1,4 @@
-osx_image: xcode9
+osx_image: xcode8.2
 language: objective-c
 xcode_project: ObjC-IOS.xcodeproj
 xcode_scheme: ObjC-IOS
