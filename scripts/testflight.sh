@@ -17,7 +17,7 @@ zip -r -9 "$OUTPUTDIR/$APP_NAME.app.dSYM.zip" "$OUTPUTDIR/$APP_NAME.app.dSYM"
 mkdir -p $OUTPUTDIR/Payload
 cp -R $OUTPUTDIR/$APP_NAME.app Payload/
 #zip -r -s 64 Payload.zip Payload/
-zip -r -9 "$OUTPUTDIR/Payload" "$OUTPUTDIR/Payload.zip"
+zip -r -9 "$OUTPUTDIR/Payload.zip" "$OUTPUTDIR/Payload"
 mv Payload.zip $APP_NAME.ipa
 
 ls "$OUTPUTDIR"
