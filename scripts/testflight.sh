@@ -14,10 +14,10 @@ RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
 
 zip -r -9 "$OUTPUTDIR/$APP_NAME.app.dSYM.zip" "$OUTPUTDIR/$APP_NAME.app.dSYM"
 
-mkdir -p "$OUTPUTDIR/Payload"
-cp -R "$OUTPUTDIR/$APP_NAME.app" Payload/
+mkdir -p $OUTPUTDIR/Payload
+cp -R $OUTPUTDIR/$APP_NAME.app Payload/
 zip -r -s 64 Payload.zip Payload/
-mv Payload.zip "$APP_NAME.ipa"
+mv Payload.zip $APP_NAME.ipa
 
 ls "$OUTPUTDIR"
   
