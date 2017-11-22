@@ -11,6 +11,7 @@ script:
   -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO
 after_script:
 - ./scripts/remove-key.sh
+after_success:
 - ./scripts/testflight.sh
 env:
   global:
