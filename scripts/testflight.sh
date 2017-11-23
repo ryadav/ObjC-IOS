@@ -29,8 +29,11 @@ ls "$OUTPUTDIR/Payload"
 echo "** **"
 mv "$OUTPUTDIR/Payload.zip" "$OUTPUTDIR/$APP_NAME.ipa"
 ls "$OUTPUTDIR"
+mv "$OUTPUTDIR/$APP_NAME.ipa" "$OUTPUTDIR/Payload1.zip"
+unzip -r -9 "$OUTPUTDIR/Payload1" "$OUTPUTDIR/Payload1.zip"
+
 echo "** **"
-ls "$OUTPUTDIR/$APP_NAME.ipa"
+ls "$OUTPUTDIR/Payload1"
   
 curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \
   -F status="2" \
