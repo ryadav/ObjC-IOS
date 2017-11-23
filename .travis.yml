@@ -10,7 +10,7 @@ script:
 - xcodebuild clean build -project ObjC-IOS.xcodeproj -scheme ObjC-IOS -sdk iphoneos
   -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO
 after_script:
-- ./scripts/remove-key.sh
+#- ./scripts/remove-key.sh
 after_success:
 - ./scripts/testflight.sh
 env:
