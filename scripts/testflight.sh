@@ -12,7 +12,9 @@ echo "********************"
 
 xcodebuild archive -project ObjC-IOS.xcodeproj -scheme ObjC-IOS -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive"
 
-xcodebuild -exportArchive -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive" -exportPath "$OUTPUTDIR/" -exportFormat ipa -exportProvisioningProfile "$PROVISIONING_PROFILE"
+#xcodebuild -exportArchive -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive" -exportPath "$OUTPUTDIR/" -exportFormat ipa -exportProvisioningProfile "$PROVISIONING_PROFILE"
+xcodebuild -exportArchive -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive" -exportPath "$OUTPUTDIR/ObjC-IOS.ipa" -exportOptionsPlist "$HOME/Library/exportOptions.plist"
+
 
 RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
 

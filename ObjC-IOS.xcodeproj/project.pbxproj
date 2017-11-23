@@ -14,6 +14,7 @@
 		1F1267021FC4080A0088DF50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F1267001FC4080A0088DF50 /* LaunchScreen.storyboard */; };
 		1F1267051FC4080A0088DF50 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1267041FC4080A0088DF50 /* main.m */; };
 		1F12670F1FC4080A0088DF50 /* ObjC_IOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F12670E1FC4080A0088DF50 /* ObjC_IOSTests.m */; };
+		1F12671A1FC697E50088DF50 /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F1267191FC697E50088DF50 /* exportOptions.plist */; };
 		B72ED2451FC67AD900E6F060 /* Enterprise.plist in Resources */ = {isa = PBXBuildFile; fileRef = B72ED2441FC67AD900E6F060 /* Enterprise.plist */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		1F12670A1FC4080A0088DF50 /* ObjC-IOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObjC-IOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F12670E1FC4080A0088DF50 /* ObjC_IOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjC_IOSTests.m; sourceTree = "<group>"; };
 		1F1267101FC4080A0088DF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F1267191FC697E50088DF50 /* exportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
 		B72ED2441FC67AD900E6F060 /* Enterprise.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Enterprise.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 				1F1267031FC4080A0088DF50 /* Info.plist */,
 				1F1267041FC4080A0088DF50 /* main.m */,
 				B72ED2441FC67AD900E6F060 /* Enterprise.plist */,
+				1F1267191FC697E50088DF50 /* exportOptions.plist */,
 			);
 			path = "ObjC-IOS";
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			files = (
 				1F1267021FC4080A0088DF50 /* LaunchScreen.storyboard in Resources */,
 				1F1266FF1FC4080A0088DF50 /* Assets.xcassets in Resources */,
+				1F12671A1FC697E50088DF50 /* exportOptions.plist in Resources */,
 				1F1266FD1FC4080A0088DF50 /* Main.storyboard in Resources */,
 				B72ED2451FC67AD900E6F060 /* Enterprise.plist in Resources */,
 			);
