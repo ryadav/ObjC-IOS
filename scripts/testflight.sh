@@ -10,19 +10,9 @@ echo "*     Signing      *"
 echo "********************"
 #xcodebuild -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
 
-xcodebuild \
--scheme "ObjC-IOS" \
--sdk iphoneos \
--archivePath "$OUTPUTDIR/$APP_NAME.xcarchive" \
--configuration Release \
-PROVISIONING_PROFILE="$PROVISIONING_PROFILE" \
-archive
+xcodebuild archive -project ObjC-IOS.xcodeproj -scheme ObjC-IOS -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive"
 
-xcodebuild \
--exportArchive \
--archivePath "$OUTPUTDIR/$APP_NAME.xcarchive" \
--exportOptionsPlist "$HOME/Library/Enterprise.plist" \
--exportPath "$OUTPUTDIR"
+xcodebuild -exportArchive -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive" -exportPath "$OUTPUTDIR/" -exportFormat ipa -exportProvisioningProfile "$PROVISIONING_PROFILE"
 
 RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
 
