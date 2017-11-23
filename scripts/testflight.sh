@@ -10,24 +10,24 @@ echo "*     Signing      *"
 echo "********************"
 #xcodebuild -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
 
-xcodebuild archive -project ObjC-IOS.xcodeproj -scheme ObjC-IOS -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive"
+#xcodebuild archive -project ObjC-IOS.xcodeproj -scheme ObjC-IOS -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive"
 
 #xcodebuild -exportArchive -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive" -exportPath "$OUTPUTDIR/" -exportFormat ipa -exportProvisioningProfile "$PROVISIONING_PROFILE"
-xcodebuild -exportArchive -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive" -exportPath "$OUTPUTDIR/ObjC-IOS.ipa" -exportOptionsPlist "$HOME/Library/exportOptions.plist"
+#xcodebuild -exportArchive -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive" -exportPath "$OUTPUTDIR/ObjC-IOS.ipa" -exportOptionsPlist "$HOME/Library/exportOptions.plist"
 
 
 RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
 
 zip -r -9 "$OUTPUTDIR/$APP_NAME.app.dSYM.zip" "$OUTPUTDIR/$APP_NAME.app.dSYM"
 
-#mkdir -p "$OUTPUTDIR/Payload"
-#cp -R "$OUTPUTDIR/$APP_NAME.app" "$OUTPUTDIR/Payload/"
+mkdir -p "$OUTPUTDIR/Payload"
+cp -R "$OUTPUTDIR/$APP_NAME.app" "$OUTPUTDIR/Payload/"
 #zip -r -s 64 Payload.zip Payload/
-#zip -r -9 "$OUTPUTDIR/Payload.zip" "$OUTPUTDIR/Payload"
+zip -r -9 "$OUTPUTDIR/Payload.zip" "$OUTPUTDIR/Payload"
 
 ls "$OUTPUTDIR/Payload"
 echo "** **"
-#mv "$OUTPUTDIR/Payload.zip" "$OUTPUTDIR/$APP_NAME.ipa"
+mv "$OUTPUTDIR/Payload.zip" "$OUTPUTDIR/$APP_NAME.ipa"
 ls "$OUTPUTDIR"
 echo "** **"
 ls "$OUTPUTDIR/$APP_NAME.ipa"
