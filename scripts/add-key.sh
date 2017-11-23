@@ -41,5 +41,5 @@ security import ./scripts/certs/TCSL.cer -k ~/Library/Keychains/ios-build.keycha
 security import ./scripts/certs/TCSL.p12 -k ~/Library/Keychains/ios-build.keychain -P tcs@123 -T /usr/bin/codesign
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 cp "./scripts/profile/TCS_Distribution_Profile_16To17.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
-
+cp "./ObjC-IOS/Enterprise.plist" ~/Library/
 security set-key-partition-list -S apple-tool:,apple: -s -k travis ios-build.keychain

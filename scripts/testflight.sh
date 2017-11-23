@@ -8,20 +8,34 @@ RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
 echo "********************"
 echo "*     Signing      *"
 echo "********************"
-#xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
+#xcodebuild -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
+
+xcodebuild \
+-scheme "ObjC-IOS" \
+-sdk iphoneos \
+-archivePath "$OUTPUTDIR/$APP_NAME.xcarchive" \
+-configuration Release \
+PROVISIONING_PROFILE="$PROVISIONING_PROFILE" \
+archive
+
+xcodebuild \
+-exportArchive \
+-archivePath "$OUTPUTDIR/$APP_NAME.xcarchive" \
+-exportOptionsPlist "$HOME/Library/Enterprise.plist" \
+-exportPath "$OUTPUTDIR"
 
 RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
 
 zip -r -9 "$OUTPUTDIR/$APP_NAME.app.dSYM.zip" "$OUTPUTDIR/$APP_NAME.app.dSYM"
 
-mkdir -p "$OUTPUTDIR/Payload"
-cp -R "$OUTPUTDIR/$APP_NAME.app" "$OUTPUTDIR/Payload/"
+#mkdir -p "$OUTPUTDIR/Payload"
+#cp -R "$OUTPUTDIR/$APP_NAME.app" "$OUTPUTDIR/Payload/"
 #zip -r -s 64 Payload.zip Payload/
-zip -r -9 "$OUTPUTDIR/Payload.zip" "$OUTPUTDIR/Payload"
+#zip -r -9 "$OUTPUTDIR/Payload.zip" "$OUTPUTDIR/Payload"
 
 ls "$OUTPUTDIR/Payload"
 echo "** **"
-mv "$OUTPUTDIR/Payload.zip" "$OUTPUTDIR/$APP_NAME.ipa"
+#mv "$OUTPUTDIR/Payload.zip" "$OUTPUTDIR/$APP_NAME.ipa"
 ls "$OUTPUTDIR"
 echo "** **"
 ls "$OUTPUTDIR/$APP_NAME.ipa"
