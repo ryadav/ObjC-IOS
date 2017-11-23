@@ -20,7 +20,7 @@ cp -R "$OUTPUTDIR/$APP_NAME.app" "$OUTPUTDIR/Payload/"
 zip -r -9 "$OUTPUTDIR/Payload.zip" "$OUTPUTDIR/Payload"
 
 ls "$OUTPUTDIR"
-mv Payload.zip "$APP_NAME.ipa"
+mv "$OUTPUTDIR/Payload.zip" "$OUTPUTDIR/$APP_NAME.ipa"
 ls "$OUTPUTDIR"
   
 curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \
