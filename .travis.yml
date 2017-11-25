@@ -13,6 +13,13 @@ after_script:
 #- ./scripts/remove-key.sh
 after_success:
 - ./scripts/testflight.sh
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: "cd76b0e53df092cad728303a59e79068971b3cac" # Set in travis-ci.org dashboard
+  on:
+    branch: master
+
 env:
   global:
   - APP_NAME="ObjC-IOS"
