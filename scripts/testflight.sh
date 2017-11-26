@@ -22,8 +22,9 @@ zip -r -9 "$OUTPUTDIR/$APP_NAME.app.dSYM.zip" "$OUTPUTDIR/$APP_NAME.app.dSYM"
 
 mkdir -p "$OUTPUTDIR/Payload"
 cp -R "$OUTPUTDIR/$APP_NAME.app" "$OUTPUTDIR/Payload/"
+cd "$OUTPUTDIR"
 #zip -r -s 64 Payload.zip Payload/
-zip -r "$OUTPUTDIR/Payload.zip" "$OUTPUTDIR/Payload"
+zip -r "Payload.zip" "Payload"
 
 ls "$OUTPUTDIR"
 echo "** **"
