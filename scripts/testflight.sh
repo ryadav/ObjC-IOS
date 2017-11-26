@@ -1,6 +1,6 @@
 # Thanks @djacobs https://gist.github.com/djacobs/2411095
 
-PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/TCS_Distribution_Profile_16To17.mobileprovision"
+PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_NAME.mobileprovision"
 OUTPUTDIR="$PWD/build/Release-iphoneos"
 RELEASE_DATE=`date '+%Y-%m-%d %H:%M:%S'`
 RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
@@ -8,23 +8,16 @@ RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
 echo "********************"
 echo "*     Signing      *"
 echo "********************"
-#xcodebuild -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
-
-#xcodebuild archive -project ObjC-IOS.xcodeproj -scheme ObjC-IOS -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive"
-
-#xcodebuild -exportArchive -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive" -exportPath "$OUTPUTDIR/" -exportFormat ipa -exportProvisioningProfile "$PROVISIONING_PROFILE"
-#xcodebuild -exportArchive -archivePath "$OUTPUTDIR/ObjC-IOS.xcarchive" -exportPath "$OUTPUTDIR/ObjC-IOS.ipa" -exportOptionsPlist "$HOME/Library/exportOptions.plist"
-
 
 RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
-
-zip -r -9 "$OUTPUTDIR/$APP_NAME.app.dSYM.zip" "$OUTPUTDIR/$APP_NAME.app.dSYM"
 
 mkdir -p "$OUTPUTDIR/Payload"
 cp -R "$OUTPUTDIR/$APP_NAME.app" "$OUTPUTDIR/Payload/"
 cd "$OUTPUTDIR"
 #zip -r -s 64 Payload.zip Payload/
 zip -r "Payload.zip" "Payload"
+zip -r -9 "$APP_NAME.app.dSYM.zip" "$APP_NAME.app.dSYM"
+
 
 ls "$OUTPUTDIR"
 echo "** **"
