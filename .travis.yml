@@ -3,6 +3,7 @@ language: objective-c
 xcode_project: ObjC-IOS.xcodeproj
 xcode_scheme: ObjC-IOS
 before_script:
+- sudo apt-get install jq
 - ./scripts/add-key.sh
 - ./scripts/update-bundle.sh
 - ./scripts/sign-and-upload.sh
