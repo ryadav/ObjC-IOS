@@ -4,5 +4,7 @@ rm -f ~/Library/MobileDevice/Provisioning\ Profiles/$PROFILE_NAME.mobileprovisio
 
 
 jsonValue= cat ./scripts/customConfiguration.json | jq '.isCreateBuild'
-echo $jsonValue
-echo "my name appear here rahul yadav"
+if [ "$jsonValue" = true ] ; then
+    echo $jsonValue
+    echo 'Be careful not to fall off!'
+fi
