@@ -4,10 +4,10 @@ rm -f ~/Library/MobileDevice/Provisioning\ Profiles/$PROFILE_NAME.mobileprovisio
 
 
 jsonValue= cat ./scripts/customConfiguration.json | jq '.isCreateBuild'
-if [[ "$jsonValue" == "master" ]]; then
+if [[ "$jsonValue" == "true" ]]; then
     echo "phone_missing is false"
 fi
-if [[ "$jsonValue" != "master" ]]; then
+if [[ "$jsonValue" != "true" ]]; then
     echo "phone_missing is true."
 fi
 
