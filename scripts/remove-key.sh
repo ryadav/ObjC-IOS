@@ -4,7 +4,7 @@ rm -f ~/Library/MobileDevice/Provisioning\ Profiles/$PROFILE_NAME.mobileprovisio
 
 
 jsonValue= cat ./scripts/customConfiguration.json | jq '.isCreateBuild'
-if $jsonValue; then
+if [[ "$jsonValue" == "false" ]]; then
     echo "This is a pull request. No deployment will be done."
 fi
 
