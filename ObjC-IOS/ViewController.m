@@ -23,6 +23,7 @@
 
 
 - (void)didReceiveMemoryWarning {
+    NSLog(@"efdvdbd");
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
