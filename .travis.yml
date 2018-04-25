@@ -6,7 +6,7 @@ before_script:
 - ./scripts/add-key.sh
 - ./scripts/update-bundle.sh
 - ./scripts/sign-and-upload.sh
-- sudo apt-get install jq
+- sudo brew install jq
 script:
 - xcodebuild clean build -project ObjC-IOS.xcodeproj -scheme ObjC-IOS -sdk iphoneos
   -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO
