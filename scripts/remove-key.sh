@@ -4,3 +4,7 @@ rm -f ~/Library/MobileDevice/Provisioning\ Profiles/$PROFILE_NAME.mobileprovisio
 
 
 echo "my name appear here rahul yadav"
+
+if [ ! -z "$BUNDLE_DISPLAY_NAME" ]; then
+  echo "my name appear here rahul yadav"
+fi
