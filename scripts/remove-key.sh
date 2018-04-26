@@ -3,12 +3,10 @@ security delete-keychain ios-build.keychain
 rm -f ~/Library/MobileDevice/Provisioning\ Profiles/$PROFILE_NAME.mobileprovision
 
 
-jsonValue= cat ./scripts/customConfiguration.json | jq '.isCreateBuild'
-if [[ "$jsonValue" == "true" ]]; then
-    echo "phone_missing is false"
-fi
-if [[ "$jsonValue" != "true" ]]; then
-    echo "phone_missing is true."
+myVal= cat ./scripts/customConfiguration.json | jq '.isCreateBuild'
+
+if [ "$myVal" = "true" ]; then
+  echo "x has the value 'valid'"
 fi
 
 echo "call from outside"
